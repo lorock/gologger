@@ -40,7 +40,7 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
 
     logger.Info("this is a info log!")
     logger.Errorf("this is a error %s log!", "format")
@@ -54,7 +54,7 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
     logger.SetAsync()
 
     logger.Info("this is a info log!")
@@ -72,21 +72,21 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
 
     logger.Detach("console")
 
     // console adapter config
-    consoleConfig := &go_logger.ConsoleConfig{
+    consoleConfig := &gologger.ConsoleConfig{
         Color: true, // Does the text display the color
         JsonFormat: true, // Whether or not formatted into a JSON string
         Format: "", // JsonFormat is false, logger message output to console format string
     }
     // add output to the console
-    logger.Attach("console", go_logger.LOGGER_LEVEL_DEBUG, consoleConfig)
+    logger.Attach("console", gologger.LOGGER_LEVEL_DEBUG, consoleConfig)
 
     // file adapter config
-    fileConfig := &go_logger.FileConfig {
+    fileConfig := &gologger.FileConfig {
         Filename : "./test.log", // The file name of the logger output, does not exist automatically
         // If you want to separate separate logs into files, configure LevelFileName parameters.
         LevelFileName : map[int]string {
@@ -101,7 +101,7 @@ func main()  {
         Format: "", // JsonFormat is false, logger message written to file format string
     }
     // add output to the file
-    logger.Attach("file", go_logger.LOGGER_LEVEL_DEBUG, fileConfig)
+    logger.Attach("file", gologger.LOGGER_LEVEL_DEBUG, fileConfig)
 
 
     logger.Info("this is a info log!")
@@ -133,10 +133,10 @@ func main()  {
 
 **config format**:
 ```
-consoleConfig := &go_logger.ConsoleConfig{
+consoleConfig := &gologger.ConsoleConfig{
     Format: "%millisecond_format% [%level_string%] %body%",
 }
-fileConfig := &go_logger.FileConfig{
+fileConfig := &gologger.FileConfig{
     Format: "%millisecond_format% [%level_string%] %body%",
 }
 ```

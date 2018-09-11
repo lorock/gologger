@@ -6,16 +6,16 @@ import (
 
 func main() {
 
-	logger := go_logger.NewLogger()
+	logger := gologger.NewLogger()
 
-	apiConfig := &go_logger.ApiConfig{
+	apiConfig := &gologger.ApiConfig{
 		Url:        "http://127.0.0.1:8081/index.php",
 		Method:     "GET",
 		Headers:    map[string]string{},
 		IsVerify:   false,
 		VerifyCode: 0,
 	}
-	logger.Attach("api", go_logger.LOGGER_LEVEL_DEBUG, apiConfig)
+	logger.Attach("api", gologger.LOGGER_LEVEL_DEBUG, apiConfig)
 	logger.SetAsync()
 
 	logger.Emergency("this is a emergency log!")

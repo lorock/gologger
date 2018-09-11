@@ -38,7 +38,7 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
 
     logger.Info("this is a info log!")
     logger.Errorf("this is a error %s log!", "format")
@@ -52,7 +52,7 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
     logger.SetAsync()
 
     logger.Info("this is a info log!")
@@ -70,21 +70,21 @@ import (
     "github.com/lorock/gologger"
 )
 func main()  {
-    logger := go_logger.NewLogger()
+    logger := gologger.NewLogger()
 
     logger.Detach("console")
 
     // 命令行输出配置
-    consoleConfig := &go_logger.ConsoleConfig{
+    consoleConfig := &gologger.ConsoleConfig{
         Color: true, // 命令行输出字符串是否显示颜色
         JsonFormat: true, // 命令行输出字符串是否格式化
         Format: "", // 如果输出的不是 json 字符串，JsonFormat: false, 自定义输出的格式
     }
     // 添加 console 为 logger 的一个输出
-    logger.Attach("console", go_logger.LOGGER_LEVEL_DEBUG, consoleConfig)
+    logger.Attach("console", gologger.LOGGER_LEVEL_DEBUG, consoleConfig)
 
     // 文件输出配置
-    fileConfig := &go_logger.FileConfig {
+    fileConfig := &gologger.FileConfig {
         Filename : "./test.log", // 日志输出文件名，不自动存在
         // 如果要将单独的日志分离为文件，请配置LealFrimeNem参数。
         LevelFileName : map[int]string {
@@ -99,7 +99,7 @@ func main()  {
         Format: "", // 如果写入文件的数据不 json 格式化，自定义日志格式
     }
     // 添加 file 为 logger 的一个输出
-    logger.Attach("file", go_logger.LOGGER_LEVEL_DEBUG, fileConfig)
+    logger.Attach("file", gologger.LOGGER_LEVEL_DEBUG, fileConfig)
 
 
     logger.Info("this is a info log!")
@@ -108,7 +108,7 @@ func main()  {
 ```
 
 ## 命令行下的文本带颜色效果
-![image](https://github.com/lorock/gologger/blob/master/_example/images/console.png)
+![image](https://github.com/lorock/gologger/blob/master/example/images/console.png)
 
 ## 自定义格式化输出
 
@@ -131,10 +131,10 @@ Logger Message
 
 **配置 Format 参数**:
 ```
-consoleConfig := &go_logger.ConsoleConfig{
+consoleConfig := &gologger.ConsoleConfig{
     Format: "%millisecond_format% [%level_string%] %body%",
 }
-fileConfig := &go_logger.FileConfig{
+fileConfig := &gologger.FileConfig{
     Format: "%millisecond_format% [%level_string%] %body%",
 }
 ```
@@ -146,9 +146,9 @@ fileConfig := &go_logger.FileConfig{
 >> 你只需要配置参数 Format: "% Logger Message 别名%" 来自定义输出字符串格式
 
 ## 更多的 adapter 例子
-- [console](./_example/console.go)
-- [file](./_example/file.go)
-- [api](./_example/api.go)
+- [console](./example/console.go)
+- [file](./example/file.go)
+- [api](./example/api.go)
 
 
 ## 性能测试结果
@@ -199,12 +199,10 @@ beego/logs : github.com/astaxie/beego/logs
 
 ## 反馈
 
-欢迎提交意见和代码，联系信息 phachon@163.com
+欢迎提交意见和代码
 
 ## License
 
 MIT
 
 谢谢
----
-Create By phachon@163.com

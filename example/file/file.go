@@ -6,9 +6,9 @@ import (
 
 func main() {
 
-	logger := go_logger.NewLogger()
+	logger := gologger.NewLogger()
 
-	fileConfig := &go_logger.FileConfig{
+	fileConfig := &gologger.FileConfig{
 		Filename: "./logs/test.log",
 		LevelFileName: map[int]string{
 			logger.LoggerLevel("error"): "./logs/error.log",
@@ -21,7 +21,7 @@ func main() {
 		JsonFormat: false,
 		Format:     "%millisecond_format% [%level_string%] [%file%:%line%] %body%",
 	}
-	logger.Attach("file", go_logger.LOGGER_LEVEL_DEBUG, fileConfig)
+	logger.Attach("file", gologger.LOGGER_LEVEL_DEBUG, fileConfig)
 	logger.SetAsync()
 
 	i := 0

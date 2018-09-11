@@ -1,4 +1,4 @@
-package go_logger
+package gologger
 
 // logger config interface
 type Config interface {

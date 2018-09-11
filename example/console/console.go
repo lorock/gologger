@@ -6,17 +6,17 @@ import (
 
 func main() {
 
-	logger := go_logger.NewLogger()
+	logger := gologger.NewLogger()
 	//default attach console, detach console
 	logger.Detach("console")
 
-	consoleConfig := &go_logger.ConsoleConfig{
+	consoleConfig := &gologger.ConsoleConfig{
 		Color:      true,
 		JsonFormat: false,
 		Format:     "%millisecond_format% [%level_string%] [%file%:%line%] %body%",
 	}
 
-	logger.Attach("console", go_logger.LOGGER_LEVEL_DEBUG, consoleConfig)
+	logger.Attach("console", gologger.LOGGER_LEVEL_DEBUG, consoleConfig)
 
 	logger.SetAsync()
 
