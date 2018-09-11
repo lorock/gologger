@@ -148,9 +148,10 @@ fileConfig := &gologger.FileConfig{
 >> You can customize the format, Only needs to be satisfied Format: "%Logger Message Alias%"
 
 ## More adapter examples
-- [console](./example/console.go)
-- [file](./example/file.go)
-- [api](./example/api.go)
+- [console](./example/console/console.go)
+- [file](./example/file/file.go)
+- [api](./example/api/api.go)
+
 
 
 ## Benchmark
@@ -201,12 +202,10 @@ beego/logs : github.com/astaxie/beego/logs
 
 ## Feedback
 
-Welcome to submit comments and code, contact information phachon@163.com
+Welcome to submit comments and code
 
 ## License
 
 MIT
 
 Thanks
----------
-Create By phachon@163.com

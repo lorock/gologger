@@ -146,9 +146,9 @@ fileConfig := &gologger.FileConfig{
 >> 你只需要配置参数 Format: "% Logger Message 别名%" 来自定义输出字符串格式
 
 ## 更多的 adapter 例子
-- [console](./example/console.go)
-- [file](./example/file.go)
-- [api](./example/api.go)
+- [console](./example/console/console.go)
+- [file](./example/file/file.go)
+- [api](./example/api/api.go)
 
 
 ## 性能测试结果
