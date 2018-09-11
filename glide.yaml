@@ -1,0 +1,13 @@
+package: github.com/lorock/gologger
+import:
+- package: github.com/fatih/color
+  version: v1.7.0
+- package: github.com/mailru/easyjson
+  subpackages:
+  - jlexer
+  - jwriter
+- package: golang.org/x/sys
+  repo: https://github.com/golang/sys
+  vcs: git
+  subpackages:
+      - unix

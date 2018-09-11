@@ -1,7 +1,7 @@
 # go-logger
 一个简单而强大的 golang 日志工具包
 
-[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/phachon/go-logger) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/phachon/go-logger/master/LICENSE)
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/lorock/gologger) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/lorock/gologger/master/LICENSE)
 
 [English document](/README.md)  
 
@@ -17,7 +17,7 @@
 # 安装使用
 
 ```
-go get github.com/phachon/go-logger
+go get github.com/lorock/gologger
 go get ./...
 ```
 # 环境需要
@@ -35,7 +35,7 @@ go 1.8
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -49,7 +49,7 @@ func main()  {
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -67,7 +67,7 @@ func main()  {
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -108,7 +108,7 @@ func main()  {
 ```
 
 ## 命令行下的文本带颜色效果
-![image](https://github.com/phachon/go-logger/blob/master/_example/images/console.png)
+![image](https://github.com/lorock/gologger/blob/master/_example/images/console.png)
 
 ## 自定义格式化输出
 

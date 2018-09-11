@@ -1,0 +1,22 @@
+hash: 124a777ae1a71a81a8cf698a6549049a7ba1c6e6ffb94aaa74373cb7fe466245
+updated: 2018-09-11T15:46:17.219010184+08:00
+imports:
+- name: github.com/fatih/color
+  version: 5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4
+- name: github.com/mailru/easyjson
+  version: 60711f1a8329503b04e1c88535f419d0bb440bff
+  subpackages:
+  - buffer
+  - jlexer
+  - jwriter
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+- name: golang.org/x/sys
+  version: d0be0721c37eeb5299f245a996a483160fc36940
+  repo: https://github.com/golang/sys
+  vcs: git
+  subpackages:
+  - unix
+testImports: []

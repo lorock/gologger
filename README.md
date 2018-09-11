@@ -1,7 +1,7 @@
 # go-logger
 A simple but powerful golang log Toolkit
 
-[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/phachon/go-logger) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/phachon/go-logger/master/LICENSE)
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/lorock/gologger) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/lorock/gologger/master/LICENSE)
 
 [中文文档](/README_CN.md)
 
@@ -17,7 +17,7 @@ A simple but powerful golang log Toolkit
 # Install
 
 ```
-go get github.com/phachon/go-logger
+go get github.com/lorock/gologger
 go get ./...
 ```
 
@@ -37,7 +37,7 @@ go 1.8
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -51,7 +51,7 @@ func main()  {
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -69,7 +69,7 @@ func main()  {
 
 ```
 import (
-    "github.com/phachon/go-logger"
+    "github.com/lorock/gologger"
 )
 func main()  {
     logger := go_logger.NewLogger()
@@ -110,7 +110,7 @@ func main()  {
 ```
 
 ## Console text with color effect
-![image](https://github.com/phachon/go-logger/blob/master/_example/images/console.png)
+![image](https://github.com/lorock/gologger/blob/master/_example/images/console.png)
 
 ## Customize Format output
 
