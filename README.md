@@ -1,4 +1,4 @@
-# go-logger
+# gologger
 A simple but powerful golang log Toolkit
 
 [![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/lorock/gologger) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/lorock/gologger/master/LICENSE)
