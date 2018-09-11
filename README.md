@@ -110,7 +110,7 @@ func main()  {
 ```
 
 ## Console text with color effect
-![image](https://github.com/lorock/gologger/blob/master/_example/images/console.png)
+![image](https://github.com/lorock/gologger/blob/master/example/images/console.png)
 
 ## Customize Format output
 
@@ -148,9 +148,9 @@ fileConfig := &gologger.FileConfig{
 >> You can customize the format, Only needs to be satisfied Format: "%Logger Message Alias%"
 
 ## More adapter examples
-- [console](./_example/console.go)
-- [file](./_example/file.go)
-- [api](./_example/api.go)
+- [console](./example/console.go)
+- [file](./example/file.go)
+- [api](./example/api.go)
 
 
 ## Benchmark
