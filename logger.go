@@ -36,14 +36,14 @@ type LoggerAbstract interface {
 var adapters = make(map[string]adapterLoggerFunc)
 
 var levelStringMapping = map[int]string{
-	LOGGER_LEVEL_EMERGENCY: "Emergency",
-	LOGGER_LEVEL_ALERT:     "Alert",
-	LOGGER_LEVEL_CRITICAL:  "Critical",
-	LOGGER_LEVEL_ERROR:     "Error",
-	LOGGER_LEVEL_WARNING:   "Warning",
-	LOGGER_LEVEL_NOTICE:    "Notice",
-	LOGGER_LEVEL_INFO:      "Info",
-	LOGGER_LEVEL_DEBUG:     "Debug",
+	LOGGER_LEVEL_EMERGENCY: "Emergency", // 突然事件
+	LOGGER_LEVEL_ALERT:     "Alert",     // 警报
+	LOGGER_LEVEL_CRITICAL:  "Critical",  // 严重
+	LOGGER_LEVEL_ERROR:     "Error",     // 错误事件可能仍然允许应用程序继续运行
+	LOGGER_LEVEL_WARNING:   "Warning",   // 指定具有潜在危害的情况
+	LOGGER_LEVEL_NOTICE:    "Notice",    // 通知
+	LOGGER_LEVEL_INFO:      "Info",      // 指定能够突出在粗粒度级别的应用程序运行情况的信息的消息
+	LOGGER_LEVEL_DEBUG:     "Debug",     // 指定细粒度信息事件是最有用的应用程序调试
 }
 
 var defaultLoggerMessageFormat = "%millisecond_format% [%level_string%] %body%"
@@ -257,7 +257,7 @@ func (logger *Logger) writeToOutputs(loggerMsg *loggerMessage) {
 	}
 }
 
-//start async write by read logger.msgChan
+// startAsyncWrite start async write by read logger.msgChan
 func (logger *Logger) startAsyncWrite() {
 	for {
 		select {
@@ -272,7 +272,7 @@ func (logger *Logger) startAsyncWrite() {
 	}
 }
 
-//flush msgChan data
+// flush msgChan data
 func (logger *Logger) flush() {
 	if !logger.synchronous {
 		for {
@@ -290,7 +290,7 @@ func (logger *Logger) flush() {
 	}
 }
 
-//if SetAsync() or logger.synchronous is false, must call Flush() to flush msgChan data
+// Flush if SetAsync() or logger.synchronous is false, must call Flush() to flush msgChan data
 func (logger *Logger) Flush() {
 	if !logger.synchronous {
 		logger.signalChan <- "flush"
@@ -300,6 +300,7 @@ func (logger *Logger) Flush() {
 	logger.flush()
 }
 
+// LoggerLevel 日志级别
 func (logger *Logger) LoggerLevel(levelStr string) int {
 	levelStr = strings.ToUpper(levelStr)
 	switch levelStr {
@@ -324,6 +325,7 @@ func (logger *Logger) LoggerLevel(levelStr string) int {
 	}
 }
 
+// loggerMessageFormat 日志消息格式化
 func loggerMessageFormat(format string, loggerMsg *loggerMessage) string {
 	message := strings.Replace(format, "%timestamp%", strconv.FormatInt(loggerMsg.Timestamp, 10), 1)
 	message = strings.Replace(message, "%timestamp_format%", loggerMsg.TimestampFormat, 1)
@@ -339,89 +341,89 @@ func loggerMessageFormat(format string, loggerMsg *loggerMessage) string {
 	return message
 }
 
-//log emergency level
+// Emergency log emergency level
 func (logger *Logger) Emergency(msg string) {
 	logger.Writer(LOGGER_LEVEL_EMERGENCY, msg)
 }
 
-//log emergency format
+// Emergencyf log emergency format
 func (logger *Logger) Emergencyf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_EMERGENCY, msg)
 }
 
-//log alert level
+// Alert log alert level
 func (logger *Logger) Alert(msg string) {
 	logger.Writer(LOGGER_LEVEL_ALERT, msg)
 }
 
-//log alert format
+// Alertf log alert format
 func (logger *Logger) Alertf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_ALERT, msg)
 }
 
-//log critical level
+// Critical log critical level
 func (logger *Logger) Critical(msg string) {
 	logger.Writer(LOGGER_LEVEL_CRITICAL, msg)
 }
 
-//log critical format
+// Criticalf log critical format
 func (logger *Logger) Criticalf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_CRITICAL, msg)
 }
 
-//log error level
+// Error log error level
 func (logger *Logger) Error(msg string) {
 	logger.Writer(LOGGER_LEVEL_ERROR, msg)
 }
 
-//log error format
+// Errorf log error format
 func (logger *Logger) Errorf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_ERROR, msg)
 }
 
-//log warning level
+// Warning log warning level
 func (logger *Logger) Warning(msg string) {
 	logger.Writer(LOGGER_LEVEL_WARNING, msg)
 }
 
-//log warning format
+// Warningf log warning format
 func (logger *Logger) Warningf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_WARNING, msg)
 }
 
-//log notice level
+// Notice log notice level
 func (logger *Logger) Notice(msg string) {
 	logger.Writer(LOGGER_LEVEL_NOTICE, msg)
 }
 
-//log notice format
+// Noticef log notice format
 func (logger *Logger) Noticef(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_NOTICE, msg)
 }
 
-//log info level
+// Info log info level
 func (logger *Logger) Info(msg string) {
 	logger.Writer(LOGGER_LEVEL_INFO, msg)
 }
 
-//log info format
+// Infof log info format
 func (logger *Logger) Infof(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_INFO, msg)
 }
 
-//log debug level
+// Debug log debug level
 func (logger *Logger) Debug(msg string) {
 	logger.Writer(LOGGER_LEVEL_DEBUG, msg)
 }
 
-//log debug format
+// Debugf log debug format
 func (logger *Logger) Debugf(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
 	logger.Writer(LOGGER_LEVEL_DEBUG, msg)

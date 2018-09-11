@@ -4,16 +4,18 @@ import (
 	"github.com/lorock/gologger"
 )
 
+var logdir string
+
 func main() {
 
+	logdir = "./logs/"
 	logger := gologger.NewLogger()
-
 	fileConfig := &gologger.FileConfig{
-		Filename: "./logs/test.log",
+		Filename: logdir + "all.log",
 		LevelFileName: map[int]string{
-			logger.LoggerLevel("error"): "./logs/error.log",
-			logger.LoggerLevel("info"):  "./logs/info.log",
-			logger.LoggerLevel("debug"): "./logs/debug.log",
+			logger.LoggerLevel("error"): logdir + "error.log",
+			logger.LoggerLevel("info"):  logdir + "info.log",
+			logger.LoggerLevel("debug"): logdir + "debug.log",
 		},
 		MaxSize:    1024 * 1024,
 		MaxLine:    10000,
@@ -44,8 +46,8 @@ func main() {
 		logger.Alert("this is a alert log!")
 		logger.Critical("this is a critical log!")
 
-		i += 1
-		if i == 21000 {
+		i++
+		if i == 1050 {
 			break
 		}
 	}
